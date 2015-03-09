@@ -1,63 +1,81 @@
-// $(document).ready(function(window, document, $, undefined) {
-	var name = 'Ian Summs',
-		role =  'Web Developer',
-		pageHeader = $('#header'),
-		skills = [],
-		formattedName = HTMLheaderName.replace("%data%", name),
-		formattedRole = HTMLheaderRole.replace("%data%", role);
+// Bio  object
+var bio = {
+  "name": 'Ian Summs',
+  "role": 'Web Developer',
+  "contacts": {
+    "emailAddress": "morningLemon@users.noreply.github.com",
+    "skype": 'ian.summs',
+    "twitter": '@ian.summs',
+    "github": "morningLemon",
+    "location": "Cape Town"
+  },
+  "welcomeMessage": "loren ipsoum dolor sit amet",
+  "skills": ["programming", "dj & music producer", "UX"],
+  "bioPic": "images/3293335.jpg"
+};
 
-	// Add skills to your skillset
-	skills.push('programming', 'dj \& music producer', 'UX');
-	console.log(skills);
-	
-	// Add formatted name and role to the header
-	pageHeader.prepend(formattedName, formattedRole);
+// Work  object
+var work = {
+  "jobs": [
+    {
+      "name": "Hellocomputer",
+      "location": "Cape Town, South Africa",
+      "role": "Front-end Developer",
+      "skills": ["Javascript", "HTML", "CSS"],
+      "dates": 2013,
+      "url": "http://www.hellocomputer.com/"
+    },
+    {
+      "name": "Quirk",
+      "location": "Cape Town, South Africa",
+      "role": "Front-end Developer",
+      "skills": ["HTML", "CSS", "Javascript"],
+      "dates": 2010,
+      "url": "http://www.quirk.biz/"
+    }
+  ]
+};
 
-	// Populate your cotactInfo channels
-	var bio = {
-		"name": name,
-		"role": role,
-		"contacts": {
-			"emailAddress": "morningLemon@users.noreply.github.com",
-			"skype": 'ian.summs',
-			"twitter": '@ian.summs',
-			"github": "morningLemon",
-			"location": "Cape Town"
-		},
-		"welcomeMessage": "loren ipsoum dolor sit amet",
-		"skills": "skills",
-		"bioPic": "images/3293335.jpg"
-		
-	}
+// Education  object
+var education = {
+  "schools": [
+    {
+      "name": "University of Cape Town",
+      "location": "Cape Town, South Africa",
+      "degree": "BA",
+      "majors": ["English", "Psychology"],
+      "dates": 1996,
+      "url": "http://www.uct.ac.za/"
+    },
+    {
+      "name": "WSL",
+      "dates": 1999
+    }
+  ],
+  "onlineCourses": [
+    {
+      "title": "Learning How to Learn",
+      "school": "Coursera",
+      "date": 2015,
+      "url": "https://www.coursera.org/learn/learning-how-to-learn"
+    },
+    {
+      "title": "Javascript Syntax",
+      "school": "Udacity",
+      "date": 2015,
+      "url": "http://www.udacity.com/course/ud804"
+    }
+  ]
+};
 
-	// Work
-	var work = {};
-	work.position = "Developer";
-	work.employer = "Helloccomputer";
-	work.years = 1.3;
-
-	var education = {};
-	education["name"] = "University of Cape Town";
-	education["years"] = "1996 - 1999";
-	education["city"] = "Cape Town";
-
-	$('#main').append(work["position"]);
-	$('#main').append(education.name);
-
-
-	// Todo formatt helper Objects to the contacts are clickable
-	var formattedEmailAddress = HTMLemail.replace("%data%", contactInfo.emailAddress),
-		formattedTwitterHandle = HTMLtwitter.replace("%data%", contactInfo.twitter),
-		formattedGitHub = HTMLgithub.replace("%data%", contactInfo.github);
-
-	// $('#footerContacts').prepend(formattedEmailAddress, formattedTwitterHandle, formattedGitHub);
-
-	// Create nwe object called bio
-	// var bio = {
-	// 	name: name,
-	// 	role: role,
-	// 	contactInfo: contactInfo,
-	// 	pictureUrl: "images/3293335.jpg"
-	// }
-	
-// }(window, document, jQuery));
+//  Projects object
+var projects = {
+  "projects": [
+    {
+      "title": "test title",
+      "dates": 2015, 
+      "description": "test lorem ipsum stuff",
+      "images": "lkjdsfl.jpg"
+    }
+  ]
+};
