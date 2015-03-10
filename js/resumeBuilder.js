@@ -34,11 +34,26 @@ var work = {
       "url": "http://www.quirk.biz/"
     },
     {
+      "name": "Josdell Property",
+      "location": "Cape Town, South Africa",
+      "role": "Site manager",
+      "skills": ["Plans Intrerpretation", "Quality control", "Site reporting", "Staff, subcontrators procurement & supervision"],
+      "dates": 2008 - 2009
+    },
+    {
+      "name": "Puremix",
+      "location": "Cape Town, South Africa",
+      "role": "Barman",
+      "skills": ["Barman", "Set up & Stock take"],
+      "dates": 2010,
+      "url": "http://puremix.co.za"
+    },
+    {
       "name": "Timecode Records",
       "location": "Cape Town, South Africa",
       "role": ["Artist, DJ, Record label owner, Marketing & sales, product design, event organization"],
-      "skills": ["HTML", "CSS", "Javascript"],
-      "dates": 2000 - 2008,
+      "skills": ["Music", "Radness"],
+      "dates": 2000 - 2015,
       "url": "http://www.quirk.biz/"
     }
   ]
@@ -93,3 +108,24 @@ var projects = {
     }
   ]
 };
+
+
+// Popluate skills on resume
+if (bio.skills.length > 0) {
+  $('#header').append(HTMLskillsStart);
+
+  for (x = 0; x < bio.skills.length; x++ ) {
+    var formattedSkill = HTMLskills.replace("%data%", bio.skills[x]);
+
+    $('#skills').append(formattedSkill);
+  }
+}
+
+// Popluate jobs on resume
+for (job in work) {
+  for (x = 0; x < work.jobs.length; x++ ) {
+    $('#workExperience').append(HTMLworkStart);
+    console.log(x)
+  }
+}
+
