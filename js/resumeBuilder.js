@@ -32,6 +32,14 @@ var work = {
       "skills": ["HTML", "CSS", "Javascript"],
       "dates": 2010,
       "url": "http://www.quirk.biz/"
+    },
+    {
+      "name": "Timecode Records",
+      "location": "Cape Town, South Africa",
+      "role": ["Artist, DJ, Record label owner, Marketing & sales, product design, event organization"],
+      "skills": ["HTML", "CSS", "Javascript"],
+      "dates": 2000 - 2008,
+      "url": "http://www.quirk.biz/"
     }
   ]
 };
@@ -58,6 +66,12 @@ var education = {
       "school": "Coursera",
       "date": 2015,
       "url": "https://www.coursera.org/learn/learning-how-to-learn"
+    },
+    {
+      "title": "Intro to Computer Science",
+      "school": "Udacity",
+      "date": "2015",
+      "url": "https://www.udacity.com/course/c-cs101"
     },
     {
       "title": "Javascript Syntax",
