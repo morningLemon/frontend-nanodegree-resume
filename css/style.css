@@ -128,6 +128,17 @@ a {
   padding: 10px;
 }
 
+#topContacts .flex-box {
+  padding: 10px 33px 10px 10px;
+  text-align: left;
+}
+
+#topContacts .flex-box  .flex-item {
+  width: auto;
+  display: inline-block;
+  text-align: left;
+}
+
 .center-content {
   padding-top: 2.5%;
   padding-left: 5%;
