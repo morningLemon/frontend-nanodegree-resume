@@ -70,7 +70,7 @@ var work = {
       "employer": "Hellocomputer",
       "location": "Cape Town, South Africa",
       "title": "Front-end Developer",
-      "description": ["Javascript", "HTML", "CSS"],
+      "description": "Mad as a lippy how gutful of chook. Grab us a gobful piece of piss as stands out like ridgy-didge. Mad as a chuck a sickie flamin he hasn't got a bunyip. Shazza got us some booze no worries grab us a yakka. As dry as a ripper heaps shazza got us some flick.",
       "dates": 2013,
       "url": "http://www.hellocomputer.com/"
     },
@@ -78,7 +78,7 @@ var work = {
       "employer": "Quirk",
       "location": "Cape Town, South Africa",
       "title": "Front-end Developer",
-      "description": ["HTML", "CSS", "Javascript"],
+      "description": "Get a dog up ya ugg no dramas lets get some no-hoper. We're going bazza no dramas gutful of crook. He hasn't got a slab mate come a fremantle doctor. grog how she'll be right roo. Come a smokes bloody grab us a ropeable.",
       "dates": 2010,
       "url": "http://www.quirk.biz/"
     },
@@ -93,7 +93,7 @@ var work = {
       "employer": "Puremix",
       "location": "Cape Town, South Africa",
       "title": "Barman",
-      "description": ["Barman", "Set up", "Stock take"],
+      "description": ["Remember, a Jedi can feel the Force flowing through him. Look, I can take you as far as Anchorhead. You can get a transport there to Mos Eisley or wherever you're going. I need your help, Luke. She needs your help. I'm getting too old for this sort of thing."],
       "dates": 2010,
       "url": "http://puremix.co.za"
     },
@@ -101,7 +101,7 @@ var work = {
       "employer": "Timecode Records",
       "location": "Cape Town, South Africa",
       "title": ["co-owner", "Artist", "DJ", "Marketing & sales", "Product design", "Event organization"],
-      "description": ["Music", "Radness"],
+      "description": ["Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur elit tellus, tempor a pellentesque fermentum, hendrerit sit amet risus. Integer pellentesque a lectus non imperdiet. Aenean ac turpis at libero suscipit gravida. Vestibulum a ipsum urna. Nunc pellentesque tempor orci id suscipit. In hac habitasse platea dictumst. Etiam ipsum purus, Music & Radness for 10 years."],
       "dates": "2000 - 2015",
       "url": "http://www.timecode.co.za"
     }
@@ -162,6 +162,7 @@ for (job in work.jobs) {
   // Brief description of your responsibilities
   formattedJobDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);
 
+  // Append to page
   $(".work-entry:last").append([formattedEmployerTitle,formattedLocation,formattedDate,formattedJobDescription]);
 };
 // if (work.jobs.length > 0) {
