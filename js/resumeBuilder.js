@@ -1,5 +1,6 @@
 // Variables
 var x,
+    formattedBioPic,
     formattedSkill,
     job,
     fomattedEmployer,
@@ -122,6 +123,18 @@ var projects = {
 
 // Popluate skills on resume
 if (bio.skills.length > 0) {
+  // Add biopic to page
+  formattedBioPic =  HTMLbioPic.replace("%data%", bio.bioPic);
+  $('#header').append(formattedBioPic);
+
+  // Add name & role to page
+  formattedHeaderName =  HTMLheaderName.replace("%data%", bio.name);
+  $('#header').append(formattedHeaderName);
+
+  formattedHeaderRole =  HTMLheaderRole.replace("%data%", bio.role);
+  $('#header').append(formattedHeaderRole);
+  
+  //  add skills to page
   $('#header').append(HTMLskillsStart);
 
   for (x = 0; x < bio.skills.length; x++) {
