@@ -87,7 +87,7 @@ var work = {
       "location": "Cape Town, South Africa",
       "title": "Site manager",
       "description": ["Plans Intrerpretation", "Quality control", "Site reporting", "Staff, subcontrators procurement & supervision"],
-      "dates": 2008 - 2009
+      "dates": "2008 - 2009"
     },
     {
       "employer": "Puremix",
@@ -102,7 +102,7 @@ var work = {
       "location": "Cape Town, South Africa",
       "title": ["co-owner", "Artist", "DJ", "Marketing & sales", "Product design", "Event organization"],
       "description": ["Music", "Radness"],
-      "dates": 2000 - 2015,
+      "dates": "2000 - 2015",
       "url": "http://www.timecode.co.za"
     }
   ]
@@ -148,12 +148,21 @@ if (bio.skills.length > 0) {
 for (job in work.jobs) {
   $("#workExperience").append(HTMLworkStart);
 
+  // Employer Name & my position
   formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
   formattedTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
-
   formattedEmployerTitle = formattedEmployer + formattedTitle;
 
-  $(".work-entry:last").append(formattedEmployerTitle);
+  // Location
+  formattedLocation = HTMLworkLocation.replace("%data%", work.jobs[job].location);
+
+  // Dates worked
+  formattedDate = HTMLworkDates.replace("%data%", work.jobs[job].dates);
+
+  // Brief description of your responsibilities
+  formattedJobDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);
+
+  $(".work-entry:last").append([formattedEmployerTitle,formattedLocation,formattedDate,formattedJobDescription]);
 };
 // if (work.jobs.length > 0) {
 //   for (job in work.jobs) {
