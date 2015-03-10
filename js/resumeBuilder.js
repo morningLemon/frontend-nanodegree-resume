@@ -1,3 +1,13 @@
+// Variables
+var x,
+    formattedSkill,
+    job,
+    fomattedEmployer,
+    formattedTitle,
+    formattedEmployerTitle;
+
+// _________________________________________________
+
 // Bio  object
 var bio = {
   "name": 'Ian Summs',
@@ -12,51 +22,6 @@ var bio = {
   "welcomeMessage": "loren ipsoum dolor sit amet",
   "skills": ["programming", "dj & music producer", "UX"],
   "bioPic": "images/3293335.jpg"
-};
-
-// Work  object
-var work = {
-  "jobs": [
-    {
-      "name": "Hellocomputer",
-      "location": "Cape Town, South Africa",
-      "role": "Front-end Developer",
-      "skills": ["Javascript", "HTML", "CSS"],
-      "dates": 2013,
-      "url": "http://www.hellocomputer.com/"
-    },
-    {
-      "name": "Quirk",
-      "location": "Cape Town, South Africa",
-      "role": "Front-end Developer",
-      "skills": ["HTML", "CSS", "Javascript"],
-      "dates": 2010,
-      "url": "http://www.quirk.biz/"
-    },
-    {
-      "name": "Josdell Property",
-      "location": "Cape Town, South Africa",
-      "role": "Site manager",
-      "skills": ["Plans Intrerpretation", "Quality control", "Site reporting", "Staff, subcontrators procurement & supervision"],
-      "dates": 2008 - 2009
-    },
-    {
-      "name": "Puremix",
-      "location": "Cape Town, South Africa",
-      "role": "Barman",
-      "skills": ["Barman", "Set up & Stock take"],
-      "dates": 2010,
-      "url": "http://puremix.co.za"
-    },
-    {
-      "name": "Timecode Records",
-      "location": "Cape Town, South Africa",
-      "role": ["Artist, DJ, Record label owner, Marketing & sales, product design, event organization"],
-      "skills": ["Music", "Radness"],
-      "dates": 2000 - 2015,
-      "url": "http://www.quirk.biz/"
-    }
-  ]
 };
 
 // Education  object
@@ -97,6 +62,51 @@ var education = {
   ]
 };
 
+// Work  object
+var work = {
+  "jobs": [
+    {
+      "employer": "Hellocomputer",
+      "location": "Cape Town, South Africa",
+      "title": "Front-end Developer",
+      "description": ["Javascript", "HTML", "CSS"],
+      "dates": 2013,
+      "url": "http://www.hellocomputer.com/"
+    },
+    {
+      "employer": "Quirk",
+      "location": "Cape Town, South Africa",
+      "title": "Front-end Developer",
+      "description": ["HTML", "CSS", "Javascript"],
+      "dates": 2010,
+      "url": "http://www.quirk.biz/"
+    },
+    {
+      "employer": "Josdell Property",
+      "location": "Cape Town, South Africa",
+      "title": "Site manager",
+      "description": ["Plans Intrerpretation", "Quality control", "Site reporting", "Staff, subcontrators procurement & supervision"],
+      "dates": 2008 - 2009
+    },
+    {
+      "employer": "Puremix",
+      "location": "Cape Town, South Africa",
+      "title": "Barman",
+      "description": ["Barman", "Set up", "Stock take"],
+      "dates": 2010,
+      "url": "http://puremix.co.za"
+    },
+    {
+      "employer": "Timecode Records",
+      "location": "Cape Town, South Africa",
+      "title": ["co-owner", "Artist", "DJ", "Marketing & sales", "Product design", "Event organization"],
+      "description": ["Music", "Radness"],
+      "dates": 2000 - 2015,
+      "url": "http://www.timecode.co.za"
+    }
+  ]
+};
+
 //  Projects object
 var projects = {
   "projects": [
@@ -114,18 +124,38 @@ var projects = {
 if (bio.skills.length > 0) {
   $('#header').append(HTMLskillsStart);
 
-  for (x = 0; x < bio.skills.length; x++ ) {
-    var formattedSkill = HTMLskills.replace("%data%", bio.skills[x]);
+  for (x = 0; x < bio.skills.length; x++) {
+    formattedSkill = HTMLskills.replace("%data%", bio.skills[x]);
 
     $('#skills').append(formattedSkill);
   }
 }
 
 // Popluate jobs on resume
-for (job in work) {
-  for (x = 0; x < work.jobs.length; x++ ) {
-    $('#workExperience').append(HTMLworkStart);
-    console.log(x)
-  }
-}
+for (job in work.jobs) {
+  $("#workExperience").append(HTMLworkStart);
+
+  formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
+  formattedTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
+
+  formattedEmployerTitle = formattedEmployer + formattedTitle;
+
+  $(".work-entry:last").append(formattedEmployerTitle);
+};
+// if (work.jobs.length > 0) {
+//   for (job in work.jobs) {
+//     for (x = 0; x < work.jobs.length; x++) {
+//       $('#workExperience').append(HTMLworkStart);
+
+//       if (work.jobs[job].employer > 0) {
+//         fomattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
+//         fomattedTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
+
+//         var formattedEmployerTitle = fomattedEmployer + fomattedTitle;
+//         console.log(formattedEmployerTitle);
+//         $('.work-entry:last').append(formattedEmployerTitle);
+//       }
+//     }
+//   }
+// }
 
