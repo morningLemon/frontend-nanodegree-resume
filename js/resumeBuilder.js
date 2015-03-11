@@ -145,26 +145,30 @@ if (bio.skills.length > 0) {
 }
 
 // Popluate jobs on resume
-for (job in work.jobs) {
-  $("#workExperience").append(HTMLworkStart);
+function displayWork() {
+  for (job in work.jobs) {
+    $("#workExperience").append(HTMLworkStart);
 
-  // Employer Name & my position
-  formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
-  formattedTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
-  formattedEmployerTitle = formattedEmployer + formattedTitle;
+    // Employer Name & my position
+    formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
+    formattedTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
+    formattedEmployerTitle = formattedEmployer + formattedTitle;
 
-  // Location
-  formattedLocation = HTMLworkLocation.replace("%data%", work.jobs[job].location);
+    // Location
+    formattedLocation = HTMLworkLocation.replace("%data%", work.jobs[job].location);
 
-  // Dates worked
-  formattedDate = HTMLworkDates.replace("%data%", work.jobs[job].dates);
+    // Dates worked
+    formattedDate = HTMLworkDates.replace("%data%", work.jobs[job].dates);
 
-  // Brief description of your responsibilities
-  formattedJobDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);
+    // Brief description of your responsibilities
+    formattedJobDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);
 
-  // Append to page
-  $(".work-entry:last").append([formattedEmployerTitle,formattedLocation,formattedDate,formattedJobDescription]);
-};
+    // Append to page
+    $(".work-entry:last").append([formattedEmployerTitle,formattedLocation,formattedDate,formattedJobDescription]);
+  };
+}
+displayWork();
+
 // if (work.jobs.length > 0) {
 //   for (job in work.jobs) {
 //     for (x = 0; x < work.jobs.length; x++) {
@@ -181,4 +185,14 @@ for (job in work.jobs) {
 //     }
 //   }
 // }
+
+function collectionClickLocations() {
+  $(docuement).mousemove(function(e) {
+    var pos = findPos(this);
+    var x = e.pageX - pos.x;
+    var y = e.pageY - pos.y;
+    var coordinateDisplay = "x=" + x + ", y=" + y;
+    writeCoordinateDisplay(coordinateDisplay);
+});
+}
 

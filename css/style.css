@@ -133,6 +133,10 @@ a {
   text-align: left;
 }
 
+#topContacts .flex-box .work-entry:nth-last-child {
+  margin-right: 0;
+};
+
 #topContacts .flex-box  .flex-item {
   width: auto;
   display: inline-block;
