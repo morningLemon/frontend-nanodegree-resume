@@ -170,3 +170,21 @@ function displayWork() {
 displayWork();
 
 
+// Intarnationaliize name
+// append button to page
+$('#main').prepend(internationalizeButton);
+
+function inName() {
+  if (bio.name.length) {
+    var internationalName,
+        nameArray = bio.name.split(" ");
+    //console.log(nameArray);
+
+    internationalName = nameArray[0] + " " + nameArray[1].toUpperCase();
+    //console.log(internationalName);
+
+    return internationalName;
+  }
+}
+
+

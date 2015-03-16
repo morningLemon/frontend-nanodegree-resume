@@ -228,3 +228,15 @@ span {
     display: block;
   }
 }
+
+/* Buttons */ 
+.btn-internationalize {
+  position: absolute;
+  right: 1%;
+  top: 1%;
+  background: #F0F0F0;
+  line-height: 1em;
+  padding: 5px 10px;
+  border: none;
+  color: #2C2D2F;
+}
