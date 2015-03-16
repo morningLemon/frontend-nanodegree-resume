@@ -174,13 +174,13 @@ displayWork();
 // append button to page
 $('#main').prepend(internationalizeButton);
 
-function inName() {
+function inName(name) {
   if (bio.name.length) {
     var internationalName,
-        nameArray = bio.name.split(" ");
+        nameArray = bio.name.trim().split(" ");
     //console.log(nameArray);
 
-    internationalName = nameArray[0] + " " + nameArray[1].toUpperCase();
+    internationalName = (nameArray[0].slice(0,1).toUpperCase() + nameArray[0].slice(1).toLowerCase())  + " " + nameArray[1].toUpperCase();
     //console.log(internationalName);
 
     return internationalName;
