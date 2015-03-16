@@ -169,30 +169,4 @@ function displayWork() {
 }
 displayWork();
 
-// if (work.jobs.length > 0) {
-//   for (job in work.jobs) {
-//     for (x = 0; x < work.jobs.length; x++) {
-//       $('#workExperience').append(HTMLworkStart);
-
-//       if (work.jobs[job].employer > 0) {
-//         fomattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
-//         fomattedTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
-
-//         var formattedEmployerTitle = fomattedEmployer + fomattedTitle;
-//         console.log(formattedEmployerTitle);
-//         $('.work-entry:last').append(formattedEmployerTitle);
-//       }
-//     }
-//   }
-// }
-
-function collectionClickLocations() {
-  $(docuement).mousemove(function(e) {
-    var pos = findPos(this);
-    var x = e.pageX - pos.x;
-    var y = e.pageY - pos.y;
-    var coordinateDisplay = "x=" + x + ", y=" + y;
-    writeCoordinateDisplay(coordinateDisplay);
-});
-}
 
