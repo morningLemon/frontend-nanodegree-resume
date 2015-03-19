@@ -1,11 +1,11 @@
 // Variables
 var x,
-    formattedBioPic,
-    formattedSkill,
-    job,
-    fomattedEmployer,
-    formattedTitle,
-    formattedEmployerTitle;
+  formattedBioPic,
+  formattedSkill,
+  job,
+  fomattedEmployer,
+  formattedTitle,
+  formattedEmployerTitle;
 
 // _________________________________________________
 
@@ -115,10 +115,46 @@ var projects = {
       "title": "test title",
       "dates": 2015, 
       "description": "test lorem ipsum stuff",
-      "images": "lkjdsfl.jpg"
+      "images": ['images/3293335.jpg']
     }
   ]
 };
+
+// Encapsulation
+projects.display = function () {
+  for (project in projects.projects) {
+    $('#projects').append(HTMLprojectStart);
+
+    // Project title
+    var formattedTitle = HTMLprojectTitle.replace('%data%', projects.projects[project].title);
+    $('.project-entry:last').append(formattedTitle);
+
+    // Project dates
+    var formattedDates = HTMLprojectDates.replace('%data%', projects.projects[project].dates);
+    $('.project-entry:last').append(formattedDates);
+
+    // Project description
+    var formattedDescription = HTMLprojectDescription.replace('%data%', projects.projects[project].description);
+    $('.project-entry:last').append(formattedDescription);
+
+    if (projects.projects[project].images.length > 0) {
+        for (image in projects.projects[project].images) {
+          // console.log(projects.projects[project].length);
+          // Project image array addition
+          console.log(projects.projects[project].images[image].trim().substr(6));
+
+          if (projects.projects[project].images[image]) {
+            var formattedImage = HTMLprojectImage.replace('%data%', projects.projects[project].images[image]);
+            $('.project-entry:last').append(formattedImage);
+          } else {
+            alert('Image not found.')
+          }
+          
+        }
+    }
+  }
+}
+projects.display();
 
 
 // Popluate skills on resume
@@ -171,7 +207,6 @@ displayWork();
 
 
 // Intarnationaliize name
-// append button to page
 $('#main').prepend(internationalizeButton);
 
 function inName(name) {
