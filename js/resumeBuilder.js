@@ -1,11 +1,11 @@
 // Variables
 var x,
-    formattedBioPic,
-    formattedSkill,
-    job,
-    fomattedEmployer,
-    formattedTitle,
-    formattedEmployerTitle;
+  formattedBioPic,
+  formattedSkill,
+  job,
+  fomattedEmployer,
+  formattedTitle,
+  formattedEmployerTitle;
 
 // _________________________________________________
 
@@ -115,10 +115,46 @@ var projects = {
       "title": "test title",
       "dates": 2015, 
       "description": "test lorem ipsum stuff",
-      "images": "lkjdsfl.jpg"
+      "images": ['images/3293335.jpg']
     }
   ]
 };
+
+// Encapsulation
+projects.display = function () {
+  for (project in projects.projects) {
+    $('#projects').append(HTMLprojectStart);
+
+    // Project title
+    var formattedTitle = HTMLprojectTitle.replace('%data%', projects.projects[project].title);
+    $('.project-entry:last').append(formattedTitle);
+
+    // Project dates
+    var formattedDates = HTMLprojectDates.replace('%data%', projects.projects[project].dates);
+    $('.project-entry:last').append(formattedDates);
+
+    // Project description
+    var formattedDescription = HTMLprojectDescription.replace('%data%', projects.projects[project].description);
+    $('.project-entry:last').append(formattedDescription);
+
+    if (projects.projects[project].images.length > 0) {
+        for (image in projects.projects[project].images) {
+          // console.log(projects.projects[project].length);
+          // Project image array addition
+          console.log(projects.projects[project].images[image].trim().substr(6));
+
+          if (projects.projects[project].images[image]) {
+            var formattedImage = HTMLprojectImage.replace('%data%', projects.projects[project].images[image]);
+            $('.project-entry:last').append(formattedImage);
+          } else {
+            alert('Image not found.')
+          }
+          
+        }
+    }
+  }
+}
+projects.display();
 
 
 // Popluate skills on resume
@@ -170,20 +206,20 @@ function displayWork() {
 displayWork();
 
 
-// Push your json loactions to an arrray
-function locationizer(work_obj) {
-  var locationArray = [];
+// Intarnationaliize name
+$('#main').prepend(internationalizeButton);
 
-  locations.push(bio.contacts.location);
+function inName(name) {
+  if (bio.name.length) {
+    var internationalName,
+        nameArray = bio.name.trim().split(" ");
+    //console.log(nameArray);
 
-  for (var school in education.schools) {
-    locations.push(education.schools[school].location)
+    internationalName = (nameArray[0].slice(0,1).toUpperCase() + nameArray[0].slice(1).toLowerCase())  + " " + nameArray[1].toUpperCase();
+    //console.log(internationalName);
+
+    return internationalName;
   }
-
-  for (var job in work.jobs.job) {
-    var newLocation = work_obj.jobs[job].location;
-    locationArray.push(newlocation)
-  }
-
-  return locationArray;
 }
+
+
