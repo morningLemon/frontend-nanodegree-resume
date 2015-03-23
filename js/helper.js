@@ -72,20 +72,31 @@ $(document).ready(function() {
 /*
 The next few lines about clicks are for the Collecting Click Locations quiz in Lesson 2.
 */
-clickLocations = [];
+// clickLocations = [];
 
-function logClicks(x,y) {
-  clickLocations.push(
-    {
-      x: x,
-      y: y
-    }
-  );
+function logClicks() {
+  clickLocations.push({
+    x: x,
+    y: y
+  });
   console.log('x location: ' + x + '; y location: ' + y);
 }
 
 $(document).click(function(loc) {
-  // your code goes here!
+  var x = loc.pageX,
+      y = loc.pageY;
+
+      console.log(x.length);
+
+  logClicks(x,y);
+  // if (x.length || y.length) {
+  //   logClicks(x, y);
+  // } else if (x === undefined) {
+  //   alert("im not getting an " + x + "click :( ");
+  // } else if (y === undefined) {
+  //   alert("im not getting a " + y + "click :( ");
+  // }
+  
 });
 
 
