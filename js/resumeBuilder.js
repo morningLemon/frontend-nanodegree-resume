@@ -25,6 +25,29 @@ var bio = {
   "bioPic": "images/3293335.jpg"
 };
 
+// Popluate skills on resume
+if (bio.skills.length > 0) {
+  // Add biopic to page
+  formattedBioPic =  HTMLbioPic.replace("%data%", bio.bioPic);
+  $('#header').append(formattedBioPic);
+
+  // Add name & role to page
+  formattedHeaderName =  HTMLheaderName.replace("%data%", bio.name);
+  $('#header').append(formattedHeaderName);
+
+  formattedHeaderRole =  HTMLheaderRole.replace("%data%", bio.role);
+  $('#header').append(formattedHeaderRole);
+  
+  //  add skills to page
+  $('#header').append(HTMLskillsStart);
+
+  for (x = 0; x < bio.skills.length; x++) {
+    formattedSkill = HTMLskills.replace("%data%", bio.skills[x]);
+
+    $('#skills').append(formattedSkill);
+  }
+}
+
 // Education  object
 var education = {
   "schools": [
@@ -108,6 +131,7 @@ var work = {
   ]
 };
 
+
 //  Projects object
 var projects = {
   "projects": [
@@ -120,7 +144,7 @@ var projects = {
   ]
 };
 
-// Encapsulation
+// Encapsulation ['display' is a property of 'projects']
 projects.display = function () {
   for (project in projects.projects) {
     $('#projects').append(HTMLprojectStart);
@@ -137,6 +161,7 @@ projects.display = function () {
     var formattedDescription = HTMLprojectDescription.replace('%data%', projects.projects[project].description);
     $('.project-entry:last').append(formattedDescription);
 
+    // Project Images
     if (projects.projects[project].images.length > 0) {
         for (image in projects.projects[project].images) {
           // console.log(projects.projects[project].length);
@@ -155,30 +180,6 @@ projects.display = function () {
   }
 }
 projects.display();
-
-
-// Popluate skills on resume
-if (bio.skills.length > 0) {
-  // Add biopic to page
-  formattedBioPic =  HTMLbioPic.replace("%data%", bio.bioPic);
-  $('#header').append(formattedBioPic);
-
-  // Add name & role to page
-  formattedHeaderName =  HTMLheaderName.replace("%data%", bio.name);
-  $('#header').append(formattedHeaderName);
-
-  formattedHeaderRole =  HTMLheaderRole.replace("%data%", bio.role);
-  $('#header').append(formattedHeaderRole);
-  
-  //  add skills to page
-  $('#header').append(HTMLskillsStart);
-
-  for (x = 0; x < bio.skills.length; x++) {
-    formattedSkill = HTMLskills.replace("%data%", bio.skills[x]);
-
-    $('#skills').append(formattedSkill);
-  }
-}
 
 // Popluate jobs on resume
 function displayWork() {
