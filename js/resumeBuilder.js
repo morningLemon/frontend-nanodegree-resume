@@ -5,7 +5,8 @@ var x,
   job,
   fomattedEmployer,
   formattedTitle,
-  formattedEmployerTitle;
+  formattedEmployerTitle,
+  contactRoute;
 
 // _________________________________________________
 
@@ -25,19 +26,30 @@ var bio = {
   "bioPic": "images/3293335.jpg"
 };
 
+// Add contact detaails to header
+for (contactRoute in bio.contacts) {
+  var bioContact;
+
+  for (i = 0; i <= bio.contacts.length; i++) {
+    var fomattedMainContact = HTMLcontactGeneric.replace('%data%', bioContact.location);
+  }
+
+  $('#topContacts').append(fomattedMainContact);
+}
+
 // Popluate skills on resume
-if (bio.skills.length > 0) {
+if (bio.skills.length > 0) {  
+  // Add name & role to page
+  formattedHeaderName =  HTMLheaderName.replace("%data%", bio.name);
+  $('#header').append(formattedHeaderName);
+  //-----------------------------------------
+  formattedHeaderRole =  HTMLheaderRole.replace("%data%", bio.role);
+  $('#header').append(formattedHeaderRole);
+
   // Add biopic to page
   formattedBioPic =  HTMLbioPic.replace("%data%", bio.bioPic);
   $('#header').append(formattedBioPic);
 
-  // Add name & role to page
-  formattedHeaderName =  HTMLheaderName.replace("%data%", bio.name);
-  $('#header').append(formattedHeaderName);
-
-  formattedHeaderRole =  HTMLheaderRole.replace("%data%", bio.role);
-  $('#header').append(formattedHeaderRole);
-  
   //  add skills to page
   $('#header').append(HTMLskillsStart);
 
@@ -46,7 +58,7 @@ if (bio.skills.length > 0) {
 
     $('#skills').append(formattedSkill);
   }
-}
+}  
 
 // Education  object
 var education = {
@@ -222,5 +234,8 @@ function inName(name) {
     return internationalName;
   }
 }
+// TODO complete function to button name function toggles in click
 
 
+// Add map to page
+$('#mapDiv').append(googleMap);
