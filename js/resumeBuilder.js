@@ -1,14 +1,31 @@
 // Variables
 var x,
-  formattedBioPic,
-  formattedSkill,
-  job,
-  fomattedEmployer,
-  formattedTitle,
-  formattedEmployerTitle,
-  contactRoute;
+    formattedBioPic,
+    formattedSkill,
+    job,
+    fomattedEmployer,
+    formattedTitle,
+    formattedEmployerTitle,
+    contactRoute,
+    internationalName,
+    isAmerican = true,
+    $windowWidth = window.innerWidth,
+    $windowHeight = window.innerHeight,
+    $centered = document.querySelectorAll('.center-content');
+
+console.info($centered);
+
 
 // _________________________________________________
+
+$windowWidth = $windowWidth * 0.9;
+$windowHeight = $windowHeight * 0.95;
+
+$('.center-content').width($windowWidth);
+
+$('.center-content').height($windowHeight);
+
+
 
 // Bio  object
 var bio = {
@@ -178,7 +195,7 @@ projects.display = function () {
         for (image in projects.projects[project].images) {
           // console.log(projects.projects[project].length);
           // Project image array addition
-          console.log(projects.projects[project].images[image].trim().substr(6));
+          //console.log(projects.projects[project].images[image].trim().substr(6));
 
           if (projects.projects[project].images[image]) {
             var formattedImage = HTMLprojectImage.replace('%data%', projects.projects[project].images[image]);
@@ -219,22 +236,47 @@ function displayWork() {
 displayWork();
 
 
+
+function inName(name) {
+    var oldName = bio.name,
+        finalName = oldName;
+
+    name = document.getElementById('name').innerHTML;
+    array = oldName.split(' ');
+
+    if (oldName === name) {
+        finalName = array[0][0].toUpperCase() + array[0].slice(1).toLowerCase() + ' ' + array[1].toUpperCase();
+        return finalName;
+        isInternational = true;
+        $('#name').addClass('is-international ');
+    } else {
+        return finalName;
+        $('#name').removeClass('is-international ');
+        isInternational = false;
+    }
+
+
+
+    var finalName = oldName;
+
+    if (isAmerican = true) {
+        finalName = array[0][0].toUpperCase() + array[0].slice(1).toLowerCase() + ' ' + array[1].toUpperCase();
+        return finalName;
+        isInternational = false;
+    } else {
+        finalName = array[0][0].toUpperCase() + array[0].slice(1).toLowerCase() + ' ' + array[1].slice(0, 1).toUpperCase() + array[1].slice(1).toLowerCase();
+        return finalName;
+        isInternational = true;
+    }
+    //finalName = array[0][0].toUpperCase() + array[0].slice(1).toLowerCase() + ' ' + array[1].toUpperCase();
+    //return finalName;
+    //isInternational = true;
+}
+
 // Intarnationaliize name
 $('#main').prepend(internationalizeButton);
 
-function inName(name) {
-  if (bio.name.length) {
-    var internationalName,
-        nameArray = bio.name.trim().split(" ");
-    //console.log(nameArray);
 
-    internationalName = (nameArray[0].slice(0,1).toUpperCase() + nameArray[0].slice(1).toLowerCase())  + " " + nameArray[1].toUpperCase();
-    //console.log(internationalName);
-
-    return internationalName;
-  }
-}
-// TODO complete function to button name function toggles in click
 
 
 // Add map to page

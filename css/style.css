@@ -135,7 +135,7 @@ a {
 
 #topContacts .flex-box .work-entry:nth-last-child {
   margin-right: 0;
-};
+}
 
 #topContacts .flex-box  .flex-item {
   width: auto;
@@ -155,10 +155,16 @@ ul {
 }
 
 .biopic {
-  float: left;
-  padding: 10px;
-  width: 200px;
-  display: none;
+    opacity: 0.3;
+    float: left;
+    padding: 2.5% 5%;
+    width: 100%;
+    height: 100%;
+    display: none;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
 }
 
 img {
@@ -228,6 +234,17 @@ span {
     display: block;
   }
 }
+
+/* Headings */
+#name {
+    transition: all 1s ease-out;
+}
+
+
+#name.is-international {
+    transition: all 10s ease-out;
+}
+
 
 /* Buttons */ 
 .btn-internationalize {
